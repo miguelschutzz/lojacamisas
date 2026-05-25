@@ -1,1 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manto da Seleção - Copa 2026</title>
+    <!-- Tailwind CSS para um design moderno e rápido -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .bg-selecao {
+            background: linear-gradient(135deg, #009c3b 0%, #002776 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
 
+    <!-- BARRA DE AVISO (Gera Urgência) -->
+    <div class="bg-yellow-400 text-center text-xs md:text-sm font-bold py-2 text-green-900 px-4">
+        🔥 PROMOÇÃO ESQUENTA COPA: Frete Grátis para todo o Brasil apenas hoje!
+    </div>
+
+    <!-- HERO SECTION (Abertura do Site) -->
+    <header class="bg-selecao text-white py-16 px-4 text-center shadow-lg">
+        <h1 class="text-4xl md:text-6xl font-black tracking-tight uppercase mb-4 text-yellow-300">
+            Vista o Manto Sagrado
+        </h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto font-light text-gray-100">
+            Garanta a nova Camisa da Seleção Brasileira para a Copa de 2026 pelo menor preço do mercado. Qualidade Premium para você vibrar com o Hexa!
+        </p>
+    </header>
+
+    <!-- SEÇÃO DO PRODUTO -->
+    <main class="max-w-6xl mx-auto px-4 py-12 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white p-6 md:p-10 rounded-2xl shadow-md">
+            
+            <!-- Imagem do Produto -->
+            <div class="flex flex-col items-center">
+                <img id="main-image" src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=600" alt="Camisa do Brasil" class="w-full max-w-md rounded-xl object-cover shadow-sm">
+                <!-- Miniaturas -->
+                <div class="flex gap-2 mt-4">
+                    <div class="w-16 h-16 bg-gray-200 rounded-lg border-2 border-yellow-400 cursor-pointer"></div>
+                    <div class="w-16 h-16 bg-gray-200 rounded-lg cursor-pointer"></div>
+                </div>
+            </div>
+
+            <!-- Informações de Compra -->
+            <div class="flex flex-col justify-between">
+                <div>
+                    <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase">Campeã de Vendas</span>
+                    <h2 class="text-2xl md:text-4xl font-bold mt-2">Camisa Oficial Brasil I - Amarela (Copa 2026)</h2>
+                    
+                    <!-- Avaliações Simuladas -->
+                    <div class="flex items-center mt-2 text-yellow-500">
+                        <span>★★★★★</span>
+                        <span class="text-gray-500 text-sm ml-2">(147 avaliações)</span>
+                    </div>
+
+                    <!-- Preço -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-200">
+                        <span class="text-gray-400 line-through text-sm">De R$ 249,90</span>
+                        <div class="flex items-center gap-3">
+                            <span class="text-3xl font-black text-green-600">R$ 99,90</span>
+                            <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">60% OFF</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Pagamento seguro via Pix com aprovação imediata</p>
+                    </div>
+
+                    <!-- Seleção de Tamanho -->
+                    <div class="mt-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Escolha seu tamanho:</label>
+                        <div class="flex gap-3">
+                            <button onclick="selecionarTamanho(this)" class="w-12 h-12 rounded-lg border-2 border-gray-300 font-bold hover:border-yellow-400 focus:outline-none transition-all">P</button>
+                            <button onclick="selecionarTamanho(this)" class="w-12 h-12 rounded-lg border-2 border-gray-300 font-bold hover:border-yellow-400 focus:outline-none transition-all">M</button>
+                            <button onclick="selecionarTamanho(this)" class="w-12 h-12 rounded-lg border-2 border-gray-300 font-bold hover:border-yellow-400 focus:outline-none transition-all">G</button>
+                            <button onclick="selecionarTamanho(this)" class="w-12 h-12 rounded-lg border-2 border-gray-300 font-bold hover:border-yellow-400 focus:outline-none transition-all">GG</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botão de Compra Direta -->
+                <div class="mt-8">
+                    <button onclick="abrirJanelaPix()" class="w-full bg-green-600 hover:bg-green-700 text-white font-black py-4 px-6 rounded-xl text-lg uppercase tracking-wider shadow-lg transform active:scale-95 transition-all cursor-pointer">
+                        🛒 Finalizar Compra (R$ 99,90)
+                    </button>
+                    <div class="flex justify-center items-center gap-4 mt-4 text-xs text-gray-500">
+                        <span>🔒 Ambiente 100% Seguro</span>
+                        <span>🚚 Envio imediato para todo o Brasil</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- TELA COLOQUE SEU PIX (MODAL ESCONDIDO) -->
+    <div id="modal-pix" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative text-center">
+            <button onclick="fecharJanelaPix()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl font-bold">&times;</button>
+            
+            <span class="text-3xl">⚡</span>
+            <h3 class="text-xl font-black mt-2 text-green-700">Quase lá! Transfira pelo Pix</h3>
+            <p class="text-sm text-gray-500 mt-1">Copie a chave abaixo para realizar o pagamento de **R$ 99,90**</p>
+            
+            <!-- Campo da Chave Pix -->
+            <div class="mt-6 bg-gray-50 p-3 rounded-xl border border-gray-200 flex flex-col items-center justify-between gap-2">
+                <!-- SUBSTITUA O TEXTO ABAIXO PELA SUA CHAVE PIX REAL -->
+                <span id="chave-pix" class="font-mono text-xs md:text-sm font-bold text-gray-700 break-all">suachavepixaqui@email.com</span>
+                <button onclick="copiarPix()" class="mt-2 w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg text-xs transition-all">
+                    📋 Copiar Chave Pix
+                </button>
+            </div>
+
+            <p class="text-xs text-red-500 mt-4 font-semibold">⚠️ Após fazer o Pix, envie o comprovante e seu endereço de entrega no chat das redes sociais para confirmarmos o envio!</p>
+        </div>
+    </div>
+
+    <!-- RODAPÉ SIMPLES -->
+    <footer class="bg-gray-800 text-gray-400 text-center py-6 text-sm">
+        <p>© 2026 Manto da Seleção. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- LÓGICA EM JAVASCRIPT -->
+    <script>
+        let tamanhoSelecionado = "";
+
+        function selecionarTamanho(botao) {
+            // Remove a borda amarela de todos os botões
+            const botoes = botao.parentElement.children;
+            for (let b of botoes) {
+                b.classList.remove('border-yellow-500', 'bg-yellow-50');
+                b.classList.add('border-gray-300');
+            }
+            // Adiciona no botão clicado
+            botao.classList.remove('border-gray-300');
+            botao.classList.add('border-yellow-500', 'bg-yellow-50');
+            tamanhoSelecionado = botao.innerText;
+        }
+
+        function abrirJanelaPix() {
+            if (!tamanhoSelecionado) {
+                alert("Por favor, selecione um tamanho antes de comprar!");
+                return;
+            }
+            document.getElementById('modal-pix').classList.remove('hidden');
+        }
+
+        function fecharJanelaPix() {
+            document.getElementById('modal-pix').classList.add('hidden');
+        }
+
+        function copiarPix() {
+            const chave = document.getElementById('chave-pix').innerText;
+            navigator.clipboard.writeText(chave);
+            alert("Chave Pix copiada com sucesso!");
+        }
+    </script>
+
+</body>
+</html>
